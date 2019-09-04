@@ -4,10 +4,12 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome</title>
+<title>Login Error</title>
 </head>
 <body>
-<p>Welcome, <%=session.getAttribute("name")%></p>
-<p><a href="logout.jsp">Logout</a>
+<center><p style="color:red">Sorry, your record is not available.</p></center>
+<%
+getServletContext().getRequestDispatcher("/index.jsp").include(request, response);
+%>
 </body>
 </html>
