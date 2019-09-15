@@ -25,7 +25,7 @@
 		<mapping class="com.netbanking.model.Customer"/>
 		<mapping class="com.netbanking.model.Address"/>
 		<mapping class="com.netbanking.model.Account"/>
-		
+		<mapping class="com.netbanking.model.Branch"/>
 
 	</session-factory>
 

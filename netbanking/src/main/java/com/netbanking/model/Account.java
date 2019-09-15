@@ -1,13 +1,18 @@
 package com.netbanking.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 @Component
@@ -20,17 +25,15 @@ public class Account {
 	@Column(length = 30)
 	private String accountNumber;
 	private long balance;
-	private String branchName;
-	//private Branch branchObject;
+	//private String branchName;
+	@Autowired
+	@ManyToOne(targetEntity = com.netbanking.model.Branch.class, cascade = CascadeType.ALL )
+	@JoinColumn(name="branchID")
+	private Branch branch;
 	public int getAccountID() {
 		return accountID;
 	}
-//	public Branch getBranchObject() {
-//		return branchObject;
-//	}
-//	public void setBranchObject(Branch branchObject) {
-//		this.branchObject = branchObject;
-//	}
+
 	public void setAccountID(int accountID) {
 		this.accountID = accountID;
 	}
@@ -46,11 +49,13 @@ public class Account {
 	public void setBalance(long balance) {
 		this.balance = balance;
 	}
-	public String getBranchName() {
-		return branchName;
+	
+	public Branch getBranch() {
+		return branch;
 	}
-	public void setBranchName(String branchName) {
-		this.branchName = branchName;
+
+	public void setBranch(Branch branch) {
+		this.branch = branch;
 	}
 	
 	

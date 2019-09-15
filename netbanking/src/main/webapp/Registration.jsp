@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page isELIgnored="false" %>  
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -75,8 +76,9 @@
    
    <tr>
     <td>Hint Question:</td>
-	<td>
-	<%-- <td><form:input path="hintQuestion" type="select"/></td> --%>
+	
+	 <td><form:select path="hintQuestion" /> 
+	 
 	<select>
 	<option>----select question----</option>
      <option value="your dog name">your dog name</option>
@@ -118,17 +120,11 @@
    
    <tr>
     <td>Branch :</td>
-    <td><form:input path="account.branchName" type="text"/></td>
-    
-   <%-- <form:select path = "account.branchName">
-   <form:option value = "NONE" label = "Select"/>
-   <form:option value = "HYD" label = "Hyd"/>
-   <form:option value = "DEL" label = "Del"/>
-   
-   <form:options items = "HYD" />
-   <form:options items = "${branchList}" />
-	</form:select>   --%>
-   
+    <td><form:select path="account.branch.branch">
+    	<form:option value="NONE" label="--- Select ---" />
+        <form:options items="${branchList}"></form:options>
+    </form:select></td>
+   </tr>
    <tr>
     <td><input type="submit" value="Submit" /></td>
    </tr>

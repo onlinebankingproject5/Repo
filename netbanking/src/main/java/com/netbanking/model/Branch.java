@@ -19,6 +19,23 @@ public class Branch {
 	private String branch;
 	@Column(length = 30)
 	private String IFSCcode;
+	private String state;
+	private String city;
+	@Column(name = "CONTACTNO")
+	private int conctactNo;
+	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	@Override
+	public String toString() {
+		return "Branch [branchID=" + branchID + ", branch=" + branch + ", IFSCcode=" + IFSCcode + ", state=" + state
+				+ ", city=" + city + ", conctactNo=" + conctactNo + "]";
+	}
 	public int getBranchID() {
 		return branchID;
 	}
@@ -36,6 +53,18 @@ public class Branch {
 	}
 	public void setIFSCcode(String iFSCcode) {
 		IFSCcode = iFSCcode;
+	}
+	public int getConctactNo() {
+		return conctactNo;
+	}
+	public void setConctactNo(int conctactNo) {
+		this.conctactNo = conctactNo;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
 	}
 	
 	
